@@ -11,22 +11,22 @@ public class FindOdd {
         if (a.length == 1) return a[0];
 
         ArrayList<Integer> usedItems = new ArrayList<>();
-        for (int i = 0; i < a.length-1; i++) {
-            int count = 1;
+        for (int i = 0; i < a.length - 1; i++) {
 
-            if (!usedItems.isEmpty()){
+            if (!usedItems.isEmpty()) {
                 boolean isUsed = false;
-                for (int j = 0; j < usedItems.size(); j++) {
-                    if (usedItems.get(j) == a[i]) isUsed = true;
+                for (Integer usedItem : usedItems) {
+                    if (usedItem == a[i]) isUsed = true;
                 }
                 if (isUsed) continue;
             }
 
-            for (int j = i+1; j < a.length; j++) {
+            int count = 1;
+            for (int j = i + 1; j < a.length; j++) {
                 if (a[i] == a[j]) count++;
             }
             usedItems.add(a[i]);
-            if (count == 1 || (count%2) == 1) return a[i];
+            if (count == 1 || (count % 2) == 1) return a[i];
         }
 
         return 0;
